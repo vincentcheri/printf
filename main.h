@@ -26,8 +26,8 @@ typedef struct flags
  */
 typedef struct printHandler
 {
-	char c;
-	int (*f)(va_list ap, flags_t *f);
+char c;
+int (*f)(va_list ap, flags_t *f);
 } ph;
 
 /* print_nums */
@@ -72,5 +72,26 @@ int print_address(va_list l, flags_t *f);
 
 /* print_percent(%) */
 int print_percent(va_list l, flags_t *f);
+
+int _write_char(char);
+int print_char(va_list);
+int print_string(va_list);
+int print_percent(va_list);
+int print_integer(va_list);
+int print_number(va_list);
+int print_binary(va_list);
+int print_reversed(va_list arg);
+int rot13(va_list);
+int unsigned_integer(va_list);
+int print_octal(va_list list);
+int print_hex(va_list list);
+int print_heX(va_list list);
+
+/*Helper functions*/
+unsigned int base_len(unsigned int, int);
+char *rev_string(char *);
+void write_base(char *str);
+char *_memcpy(char *dest, char *src, unsigned int n);
+int print_unsgined_number(unsigned int);
 
 #endif /* MAIN_H */
