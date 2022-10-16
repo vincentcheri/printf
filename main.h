@@ -13,9 +13,9 @@
 */
 typedef struct flags
 {
-	int plus;
-	int space;
-	int hash;
+int plus;
+int space;
+int hash;
 } flags_t;
 
 /**
@@ -23,7 +23,7 @@ typedef struct flags
  * on the format specifier passed to _printf()
  * @c: format specifier
  * @f: pointer to the correct printing function
- */
+*/
 typedef struct printHandler
 {
 char c;
@@ -42,7 +42,7 @@ int print_hex_big(va_list l, flags_t *f);
 int print_binary(va_list l, flags_t *f);
 int print_octal(va_list l, flags_t *f);
 
-/* converter_function */
+/* converter */
 char *convert(unsigned long int num, int base, int lowercase);
 
 /* _printf */
@@ -51,14 +51,14 @@ int _printf(const char *format, ...);
 /* get_print */
 int (*get_print(char s))(va_list, flags_t *);
 
-/* get_flags */
+/* get_flag */
 int get_flag(char s, flags_t *f);
 
 /* print_alpha */
 int print_string(va_list l, flags_t *f);
 int print_char(va_list l, flags_t *f);
 
-/* write_function */
+/* write_funcs */
 int _putchar(char c);
 int _puts(char *str);
 
@@ -67,31 +67,10 @@ int print_rot13(va_list l, flags_t *f);
 int print_rev(va_list l, flags_t *f);
 int print_bigS(va_list l, flags_t *f);
 
-/* print_address(&) */
+/* print_address */
 int print_address(va_list l, flags_t *f);
 
-/* print_percent(%) */
+/* print_percent */
 int print_percent(va_list l, flags_t *f);
-
-int _write_char(char);
-int print_char(va_list);
-int print_string(va_list);
-int print_percent(va_list);
-int print_integer(va_list);
-int print_number(va_list);
-int print_binary(va_list);
-int print_reversed(va_list arg);
-int rot13(va_list);
-int unsigned_integer(va_list);
-int print_octal(va_list list);
-int print_hex(va_list list);
-int print_heX(va_list list);
-
-/*Helper functions*/
-unsigned int base_len(unsigned int, int);
-char *rev_string(char *);
-void write_base(char *str);
-char *_memcpy(char *dest, char *src, unsigned int n);
-int print_unsgined_number(unsigned int);
 
 #endif /* MAIN_H */
